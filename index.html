@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad Alamrousy</title>
+<meta name="description" content="Ahmad Alamrousy — Computational Scientist and Machine Learning Engineer working at the intersection of machine learning and physics.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #555;
+    --accent: #1a5276;
+    --border: #e2e2e2;
+    --card: #f7f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171c;
+      --fg: #e6e6e6;
+      --muted: #9aa4b2;
+      --accent: #6fb1e0;
+      --border: #2a2f38;
+      --card: #1b1f26;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 40px 22px 80px; }
+
+  /* Header */
+  header { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .photo {
+    width: 132px; height: 132px; border-radius: 50%;
+    object-fit: cover; border: 3px solid var(--border);
+    background: var(--card); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px; color: var(--muted); font-weight: 600;
+  }
+  h1 { font-size: 2.1rem; margin: 0 0 4px; letter-spacing: -0.5px; }
+  .tagline { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
+  .contact { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .contact a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); }
+  .contact a:hover { color: var(--accent); }
+
+  /* Nav */
+  nav { margin: 22px 0 34px; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  nav a { color: var(--fg); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  nav a:hover { color: var(--accent); }
+
+  section { margin-bottom: 42px; }
+  h2 { font-size: 1.25rem; margin: 0 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block; }
+  p.lead { font-size: 1.02rem; color: var(--fg); }
+
+  .item { margin-bottom: 22px; }
+  .item-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .item-title { font-weight: 700; margin: 0; }
+  .item-org { color: var(--accent); font-weight: 600; }
+  .item-date { color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
+  ul.bullets { margin: 8px 0 0; padding-left: 20px; }
+  ul.bullets li { margin-bottom: 5px; color: var(--muted); }
+
+  /* Skills / cards */
+  .skill-group { margin-bottom: 16px; }
+  .skill-group h3 { font-size: 0.98rem; margin: 0 0 4px; color: var(--fg); }
+  .skill-group p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; }
+  .card p { margin: 0; color: var(--muted); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 4px 13px; font-size: 0.85rem; color: var(--fg); }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <!-- Replace the letter below with your photo: put a file named photo.jpg in this folder,
+         then swap this <div> for:  <img class="photo" src="photo.jpg" alt="Ahmad Alamrousy"> -->
+    <div class="photo">AA</div>
+    <div>
+      <h1>Ahmad Alamrousy</h1>
+      <p class="tagline">Computational Scientist &amp; Machine Learning Engineer</p>
+      <p class="contact">
+        Carol Stream, Illinois &nbsp;·&nbsp;
+        <a href="mailto:ahmadalamrousy@gmail.com">ahmadalamrousy@gmail.com</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/ahmad-alamrousy" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#awards">Awards</a>
+  </nav>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lead">
+      Computational scientist and Machine Learning Engineer with 9+ years of experience in mathematical
+      modeling, statistical inference, optimization, and large-scale machine learning systems. My work has
+      focused on developing data-driven computational frameworks for extracting meaningful patterns from
+      complex and noisy datasets, combining principles from applied mathematics, algorithms, and scientific
+      computing.
+    </p>
+    <p class="lead">
+      I am pursuing an M.S. in Data Science while strengthening my background in physics, quantum mechanics,
+      and quantum information science in preparation for doctoral research in Quantum Science and Engineering.
+      My long-term goal is to bridge machine learning and physics through computational approaches for
+      modeling complex quantum and physical systems.
+    </p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <p class="item-title">Senior Machine Learning Engineer <span class="item-org">· InfraShield, IL</span></p>
+        <span class="item-date">Jan 2025 – Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Designed and deployed learning systems based on statistical inference, optimization, and high-dimensional representation learning, achieving 92% predictive accuracy while maintaining robustness under changing data distributions.</li>
+        <li>Developed physics-inspired monitoring and calibration frameworks to characterize distribution shifts, uncertainty propagation, and model stability — analogous to parameter drift and noise correction in continuously operating experimental systems.</li>
+        <li>Integrated large-scale neural architectures and language models into scientific-style information extraction pipelines, applying dimensionality reduction, probabilistic modeling, and information theory to improve automated decision processes.</li>
+        <li>Built closed-loop ML systems combining automated measurement, feedback, and adaptive retraining, enabling models to self-correct under non-stationary environments.</li>
+        <li>Developed scalable computational pipelines using optimization techniques and numerical methods, reducing model deployment cycles from weeks to hours.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <p class="item-title">Machine Learning Engineer <span class="item-org">· Master Works, Riyadh, KSA</span></p>
+        <span class="item-date">Jan 2022 – Dec 2024</span>
+      </div>
+      <ul class="bullets">
+        <li>Developed large-scale computational models for analyzing complex educational systems using statistical learning theory, time-series analysis, and predictive modeling across more than 10TB of daily data.</li>
+        <li>Applied mathematical forecasting techniques — temporal modeling, regression analysis, probabilistic estimation — improving prediction accuracy of student performance by 40%.</li>
+        <li>Designed algorithms for extracting meaningful signals from noisy, high-dimensional datasets using concepts from signal processing, statistical-mechanics-inspired analysis, and pattern recognition.</li>
+        <li>Engineered distributed computational frameworks for large-scale data processing, optimizing numerical workflows and reducing computational latency by 60%.</li>
+        <li>Built real-time analytical systems translating complex measurements into interpretable models through statistical inference and uncertainty-aware decision frameworks.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <p class="item-title">Data Scientist &amp; Machine Learning Engineer <span class="item-org">· Unilever, Dubai, UAE</span></p>
+        <span class="item-date">Jun 2020 – Dec 2021</span>
+      </div>
+      <ul class="bullets">
+        <li>Developed mathematical modeling frameworks for complex behavioral systems using statistical inference, ML optimization, and predictive analytics, achieving 85% classification accuracy.</li>
+        <li>Applied computational methods to extract latent structures from large-scale, unstructured datasets via representation learning and automated feature discovery.</li>
+        <li>Designed ML algorithms for image and text analysis, leveraging computer vision, information theory, and probabilistic modeling.</li>
+        <li>Implemented automated data processing pipelines transforming heterogeneous observations into quantitative models for decision-making.</li>
+        <li>Applied rigorous model evaluation — uncertainty analysis, validation strategies, generalization testing — to improve reliability on unseen data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="item">
+      <div class="item-head">
+        <p class="item-title">M.S., Data Science <span class="item-org">· Eastern University, Philadelphia, USA</span></p>
+        <span class="item-date">Jan 2024 – Apr 2026</span>
+      </div>
+      <ul class="bullets">
+        <li>Advanced study in mathematical modeling, statistical inference, computational methods, optimization, and machine learning theory for analyzing complex, high-dimensional systems.</li>
+        <li>Applied linear algebra, probability theory, numerical optimization, and statistical-mechanics-inspired computational approaches to develop data-driven models.</li>
+        <li>Currently expanding toward quantum information science, quantum algorithms, and computational physics through independent study of quantum mechanics and quantum computing frameworks.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <p class="item-title">B.S., Computer Science <span class="item-org">· Menoufia University, Egypt</span></p>
+        <span class="item-date">Jun 2015 – Jun 2019</span>
+      </div>
+      <ul class="bullets">
+        <li>Coursework concentration in Physics and Mathematics — calculus, linear algebra, differential equations, electromagnetism, modern physics, and introductory quantum mechanics.</li>
+        <li>Applied computational thinking and mathematical methods to numerical analysis, algorithm development, and quantitative modeling.</li>
+        <li>Built a foundation at the intersection of physics, mathematics, and computation, later extended through graduate work in data science and statistical modeling.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+
+    <div class="skill-group">
+      <h3>Physics, Mathematics &amp; Computational Science</h3>
+      <p>Linear Algebra (matrix decomposition, eigenvalue problems), Multivariable Calculus, Differential Equations, Optimization Methods, Probability Theory, Bayesian Inference; Classical Mechanics, Electromagnetism, Modern Physics; Numerical Analysis, Scientific Computing, Fourier Analysis, Signal Processing, Dynamical Systems, Time-Series Modeling, Uncertainty Quantification.</p>
+    </div>
+    <div class="skill-group">
+      <h3>Machine Learning &amp; Scientific AI</h3>
+      <p>PyTorch, TensorFlow, Keras, scikit-learn, XGBoost; Supervised/Unsupervised &amp; Representation Learning, Neural Networks, Probabilistic Models; CNNs, RNNs, Transformers, LLMs, Fine-tuning and RAG; physics-informed modeling, surrogate modeling, data-driven simulation, inverse problems, uncertainty-aware prediction.</p>
+    </div>
+    <div class="skill-group">
+      <h3>Data Science &amp; Large-Scale Systems</h3>
+      <p>PySpark, distributed computing, ETL pipeline design, streaming data architectures; PostgreSQL, MongoDB, SQL analytics; feature engineering, statistical analysis, high-dimensional dataset processing.</p>
+    </div>
+    <div class="skill-group">
+      <h3>MLOps &amp; Infrastructure</h3>
+      <p>AWS SageMaker, Google Cloud Platform, Azure Machine Learning; Docker, Kubernetes, Git/GitHub, CI/CD; model monitoring, automated retraining, performance calibration, deployment optimization.</p>
+    </div>
+    <div class="skill-group">
+      <h3>Scientific Programming &amp; Visualization</h3>
+      <p>Python, SQL; NumPy, SciPy, Pandas, Jupyter; Flask, Django, Streamlit; Matplotlib, Seaborn, Tableau, Power BI, SPSS, SAS, Weka.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="card"><p><strong>ETEC</strong> — statistical software platform for advanced data management and business intelligence.</p></div>
+    <div class="card"><p><strong>Judicial Caseload Forecasting</strong> — time-series forecasting system for caseload projection, Ministry of Justice.</p></div>
+    <div class="card"><p><strong>Sentiment Analysis Pipeline</strong> — large-scale social media sentiment analysis.</p></div>
+    <div class="card"><p><strong>Stock Price Prediction</strong> — time-series forecasting of financial markets.</p></div>
+    <div class="card"><p><strong>Blindera</strong> — assistive software enabling social media interaction for visually impaired users.</p></div>
+  </section>
+
+  <section id="awards">
+    <h2>Certifications &amp; Achievements</h2>
+    <div class="tags">
+      <span class="tag">Certified Scrum Master (CSM)</span>
+      <span class="tag">5th Place — Google-affiliated ICPC</span>
+      <span class="tag">Best Employer of the Year — Master Works</span>
+      <span class="tag">Data Science Specialization — Wesleyan University</span>
+      <span class="tag">Market Analysis — Virginia University</span>
+      <span class="tag">Advanced Machine Learning — Interworks</span>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ahmad Alamrousy · Built with plain HTML &amp; CSS, hosted free on GitHub Pages.
+  </footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
