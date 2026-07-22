@@ -38,22 +38,31 @@
     color: var(--fg);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
   .wrap { max-width: 1060px; margin: 0 auto; padding: 40px 22px 80px; position: relative; z-index: 1; }
 
-  /* Quantum background */
+  /* Quantum background — scrolls with the page and drifts */
   .qbg {
-    position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0; overflow: hidden; pointer-events: none;
     color: var(--accent); opacity: 0.16;
   }
   .qbg svg { width: 100%; height: 100%; }
   .qbg .orbit { animation: qspin 60s linear infinite; transform-box: fill-box; transform-origin: center; }
   .qbg .orbit.b { animation-duration: 90s; animation-direction: reverse; }
   .qbg .orbit.c { animation-duration: 120s; }
-  .qbg .twinkle { animation: qtwinkle 6s ease-in-out infinite; }
+  .qbg .float { transform-box: fill-box; transform-origin: center; }
+  .qbg .f1 { animation: qfloat1 18s ease-in-out infinite; }
+  .qbg .f2 { animation: qfloat2 24s ease-in-out infinite; }
+  .qbg .f3 { animation: qfloat3 30s ease-in-out infinite; }
+  .qbg .twinkle { animation: qtwinkle 6s ease-in-out infinite, qfloat2 22s ease-in-out infinite; }
   @keyframes qspin { to { transform: rotate(360deg); } }
-  @keyframes qtwinkle { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .qbg .orbit, .qbg .twinkle { animation: none; } }
+  @keyframes qtwinkle { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+  @keyframes qfloat1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(26px,-34px); } }
+  @keyframes qfloat2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,22px); } }
+  @keyframes qfloat3 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(18px,28px); } 66% { transform: translate(-22px,-16px); } }
+  @media (prefers-reduced-motion: reduce) { .qbg .orbit, .qbg .twinkle, .qbg .float { animation: none; } }
 
   /* Two-column layout: sticky sidebar + content */
   .layout { display: flex; gap: 44px; align-items: flex-start; }
@@ -178,15 +187,15 @@
     <circle cx="1240" cy="720" r="340" fill="url(#glow)"/>
 
     <!-- atoms scattered at varying sizes -->
-    <use href="#atom" transform="translate(230 200) scale(1.4)"/>
-    <use href="#atom" transform="translate(1180 260) scale(1.0)"/>
-    <use href="#atom" transform="translate(1300 560) scale(0.7)"/>
-    <use href="#atom" transform="translate(150 640) scale(0.9)"/>
-    <use href="#atom" transform="translate(720 820) scale(0.6)"/>
+    <g class="float f1"><use href="#atom" transform="translate(230 200) scale(1.4)"/></g>
+    <g class="float f2"><use href="#atom" transform="translate(1180 260) scale(1.0)"/></g>
+    <g class="float f3"><use href="#atom" transform="translate(1300 560) scale(0.7)"/></g>
+    <g class="float f1"><use href="#atom" transform="translate(150 640) scale(0.9)"/></g>
+    <g class="float f2"><use href="#atom" transform="translate(720 820) scale(0.6)"/></g>
 
     <!-- Bloch spheres -->
-    <use href="#bloch" transform="translate(1120 640) scale(0.9)"/>
-    <use href="#bloch" transform="translate(360 780) scale(0.55)"/>
+    <g class="float f3"><use href="#bloch" transform="translate(1120 640) scale(0.9)"/></g>
+    <g class="float f1"><use href="#bloch" transform="translate(360 780) scale(0.55)"/></g>
 
     <!-- faint dotted quantum grid / particles -->
     <g fill="currentColor">
