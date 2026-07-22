@@ -59,10 +59,12 @@
   .qbg .twinkle { animation: qtwinkle 6s ease-in-out infinite, qfloat2 22s ease-in-out infinite; }
   @keyframes qspin { to { transform: rotate(360deg); } }
   @keyframes qtwinkle { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+  .qbg .flow { stroke-dasharray: 6 8; animation: qflow 2.4s linear infinite; }
+  @keyframes qflow { to { stroke-dashoffset: -28; } }
   @keyframes qfloat1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(26px,-34px); } }
   @keyframes qfloat2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,22px); } }
   @keyframes qfloat3 { 0%,100% { transform: translate(0,0); } 33% { transform: translate(18px,28px); } 66% { transform: translate(-22px,-16px); } }
-  @media (prefers-reduced-motion: reduce) { .qbg .orbit, .qbg .twinkle, .qbg .float { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .qbg .orbit, .qbg .twinkle, .qbg .float, .qbg .flow { animation: none; } }
 
   /* Two-column layout: sticky sidebar + content */
   .layout { display: flex; gap: 44px; align-items: flex-start; }
@@ -164,14 +166,12 @@
         <stop offset="0%" stop-color="currentColor" stop-opacity="0.5"/>
         <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
       </radialGradient>
-      <!-- Atom: nucleus + 3 orbital ellipses, each orbit spins -->
       <g id="atom">
         <g class="orbit a"><ellipse rx="52" ry="20" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="52" cy="0" r="4.5" fill="currentColor"/></g>
         <g class="orbit b"><ellipse rx="52" ry="20" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(60)"/><circle r="4.5" fill="currentColor" transform="rotate(60) translate(52 0)"/></g>
         <g class="orbit c"><ellipse rx="52" ry="20" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(120)"/><circle r="4.5" fill="currentColor" transform="rotate(120) translate(52 0)"/></g>
         <circle r="7" fill="currentColor"/>
       </g>
-      <!-- Bloch sphere -->
       <g id="bloch">
         <circle r="70" fill="none" stroke="currentColor" stroke-width="1.4"/>
         <ellipse rx="70" ry="24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-opacity="0.7"/>
@@ -180,24 +180,71 @@
         <circle cx="46" cy="-52" r="6" fill="currentColor"/>
         <line x1="0" y1="70" x2="0" y2="-70" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5" stroke-opacity="0.6"/>
       </g>
+      <!-- sine wave / wave-function -->
+      <path id="wave" d="M0 0 q 30 -38 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0" fill="none" stroke="currentColor" stroke-width="2"/>
+      <!-- quantum circuit: 3 wires + gates -->
+      <g id="circuit" stroke="currentColor">
+        <line class="flow" x1="0" y1="0"  x2="300" y2="0"  stroke-width="1.4"/>
+        <line class="flow" x1="0" y1="34" x2="300" y2="34" stroke-width="1.4"/>
+        <line class="flow" x1="0" y1="68" x2="300" y2="68" stroke-width="1.4"/>
+        <rect x="70"  y="-14" width="28" height="28" rx="4" fill="none" stroke-width="1.6"/>
+        <rect x="150" y="20"  width="28" height="28" rx="4" fill="none" stroke-width="1.6"/>
+        <line x1="234" y1="0" x2="234" y2="68" stroke-width="1.4"/>
+        <circle cx="234" cy="0"  r="5" fill="currentColor"/>
+        <circle cx="234" cy="68" r="8" fill="none" stroke-width="1.6"/>
+      </g>
+      <!-- node / network graph -->
+      <g id="netgraph">
+        <g stroke="currentColor" stroke-width="1" stroke-opacity="0.6">
+          <line x1="0" y1="0" x2="70" y2="-40"/>
+          <line x1="0" y1="0" x2="60" y2="55"/>
+          <line x1="70" y1="-40" x2="140" y2="10"/>
+          <line x1="60" y1="55" x2="140" y2="10"/>
+          <line x1="140" y1="10" x2="200" y2="-45"/>
+          <line x1="70" y1="-40" x2="60" y2="55"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="0" cy="0" r="5"/>
+          <circle cx="70" cy="-40" r="5"/>
+          <circle cx="60" cy="55" r="5"/>
+          <circle cx="140" cy="10" r="5"/>
+          <circle cx="200" cy="-45" r="5"/>
+        </g>
+      </g>
     </defs>
 
     <!-- soft glows -->
     <circle cx="220" cy="180" r="300" fill="url(#glow)"/>
     <circle cx="1240" cy="720" r="340" fill="url(#glow)"/>
+    <circle cx="760" cy="480" r="260" fill="url(#glow)"/>
 
-    <!-- atoms scattered at varying sizes -->
+    <!-- atoms -->
     <g class="float f1"><use href="#atom" transform="translate(230 200) scale(1.4)"/></g>
     <g class="float f2"><use href="#atom" transform="translate(1180 260) scale(1.0)"/></g>
     <g class="float f3"><use href="#atom" transform="translate(1300 560) scale(0.7)"/></g>
     <g class="float f1"><use href="#atom" transform="translate(150 640) scale(0.9)"/></g>
-    <g class="float f2"><use href="#atom" transform="translate(720 820) scale(0.6)"/></g>
+    <g class="float f2"><use href="#atom" transform="translate(720 120) scale(0.6)"/></g>
+    <g class="float f3"><use href="#atom" transform="translate(560 700) scale(0.8)"/></g>
+    <g class="float f2"><use href="#atom" transform="translate(980 790) scale(0.5)"/></g>
 
     <!-- Bloch spheres -->
     <g class="float f3"><use href="#bloch" transform="translate(1120 640) scale(0.9)"/></g>
-    <g class="float f1"><use href="#bloch" transform="translate(360 780) scale(0.55)"/></g>
+    <g class="float f1"><use href="#bloch" transform="translate(360 800) scale(0.55)"/></g>
 
-    <!-- faint dotted quantum grid / particles -->
+    <!-- sine wave functions -->
+    <g class="float f2"><use href="#wave" class="flow" transform="translate(60 340)"/></g>
+    <g class="float f3"><use href="#wave" class="flow" transform="translate(860 700) scale(1.3)"/></g>
+    <g class="float f1"><use href="#wave" class="flow" transform="translate(1000 210) scale(0.8)"/></g>
+
+    <!-- quantum circuits -->
+    <g class="float f1"><use href="#circuit" transform="translate(980 120) scale(0.85)"/></g>
+    <g class="float f3"><use href="#circuit" transform="translate(120 500) scale(0.7)"/></g>
+
+    <!-- network graphs -->
+    <g class="float f2"><use href="#netgraph" transform="translate(470 470) scale(1.1)"/></g>
+    <g class="float f1"><use href="#netgraph" transform="translate(1180 430) scale(0.8)"/></g>
+
+    <!-- particles -->
     <g fill="currentColor">
       <circle class="twinkle" cx="480" cy="120" r="2.5" style="animation-delay:0s"/>
       <circle class="twinkle" cx="900" cy="90"  r="2"   style="animation-delay:1.2s"/>
@@ -207,6 +254,8 @@
       <circle class="twinkle" cx="820" cy="560" r="2"   style="animation-delay:2.6s"/>
       <circle class="twinkle" cx="560" cy="680" r="2.5" style="animation-delay:0.9s"/>
       <circle class="twinkle" cx="1180" cy="150" r="2"  style="animation-delay:3s"/>
+      <circle class="twinkle" cx="700" cy="260" r="2"   style="animation-delay:1.5s"/>
+      <circle class="twinkle" cx="1320" cy="330" r="2.5" style="animation-delay:2.2s"/>
     </g>
     <!-- entanglement lines -->
     <g stroke="currentColor" stroke-width="0.8" stroke-opacity="0.35">
