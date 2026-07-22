@@ -3,8 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahmad Alamrousy</title>
+<title>Ahmad Alamrousy — Computational Scientist &amp; ML Engineer</title>
 <meta name="description" content="Ahmad Alamrousy — Computational Scientist and Machine Learning Engineer working at the intersection of machine learning and physics.">
+<meta name="author" content="Ahmad Alamrousy">
+<!-- Social / link-preview cards (LinkedIn, Twitter, Slack, iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ahmad Alamrousy — Computational Scientist & ML Engineer">
+<meta property="og:description" content="9+ years in mathematical modeling, statistical inference, and large-scale machine learning — bridging ML and physics.">
+<meta property="og:image" content="https://ahmadalamrousy1.github.io/photo.jpg">
+<meta property="og:url" content="https://ahmadalamrousy1.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ahmad Alamrousy — Computational Scientist & ML Engineer">
+<meta name="twitter:description" content="9+ years in mathematical modeling, statistical inference, and large-scale machine learning — bridging ML and physics.">
+<meta name="twitter:image" content="https://ahmadalamrousy1.github.io/photo.jpg">
+<meta name="theme-color" content="#1a5276">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a5276'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>">
 <style>
   :root {
     --bg: #ffffff;
@@ -51,12 +64,35 @@
   .contact a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); }
   .contact a:hover { color: var(--accent); }
 
-  /* Nav */
-  nav { margin: 22px 0 34px; padding: 12px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px 20px; }
-  nav a { color: var(--fg); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-  nav a:hover { color: var(--accent); }
+  /* Header buttons */
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+    text-decoration: none; color: var(--fg); background: var(--card);
+    border: 1px solid var(--border); transition: all .15s ease;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-primary:hover { color: #fff; filter: brightness(1.1); }
 
-  section { margin-bottom: 42px; }
+  /* Nav (sticky) */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    margin: 22px 0 34px; padding: 12px 0;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+    background: var(--bg);
+    backdrop-filter: blur(6px);
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .15s; }
+  nav a:hover { color: var(--accent); }
+  nav a.active { color: var(--accent); font-weight: 700; }
+
+  section { margin-bottom: 42px; scroll-margin-top: 64px; }
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
   h2 { font-size: 1.25rem; margin: 0 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block; }
   p.lead { font-size: 1.02rem; color: var(--fg); }
 
@@ -92,9 +128,14 @@
       <p class="tagline">Computational Scientist &amp; Machine Learning Engineer</p>
       <p class="contact">
         Carol Stream, Illinois &nbsp;·&nbsp;
-        <a href="mailto:ahmadalamrousy@gmail.com">ahmadalamrousy@gmail.com</a> &nbsp;·&nbsp;
-        <a href="https://www.linkedin.com/in/ahmad-alamrousy" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:ahmadalamrousy@gmail.com">ahmadalamrousy@gmail.com</a>
       </p>
+      <div class="links">
+        <a class="btn" href="mailto:ahmadalamrousy@gmail.com">✉ Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/ahmad-alamrousy" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn" href="https://github.com/Ahmadalamrousy1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="Ahmad_Alamrousy_CV.pdf" target="_blank" rel="noopener">↓ Download CV</a>
+      </div>
     </div>
   </header>
 
@@ -249,6 +290,29 @@
   </footer>
 
 </div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll-reveal for sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(s => s.classList.add('reveal'));
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  sections.forEach(s => revealObs.observe(s));
+
+  // Active nav highlighting
+  const navLinks = [...document.querySelectorAll('nav a')];
+  const byId = Object.fromEntries(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  const activeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        byId[e.target.id]?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => activeObs.observe(s));
+</script>
 </body>
 </html>
